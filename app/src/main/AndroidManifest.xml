@@ -46,6 +46,13 @@
             android:name=".views.alarmsound.AlarmSoundActivity"
             android:label="@string/title_activity_alarm_sound"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".views.base.BaseActivity" />
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="d2c3a40421ad21cf6f6b7d7e00b3af8518849b8d" />
     </application>
 
 </manifest>

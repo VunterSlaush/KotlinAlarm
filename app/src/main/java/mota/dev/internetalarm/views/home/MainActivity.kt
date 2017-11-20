@@ -1,25 +1,35 @@
 package mota.dev.internetalarm.views.home
 
 import android.os.Bundle
-
-import android.support.v7.app.AppCompatActivity
-import com.evernote.android.job.JobManager
 import kotlinx.android.synthetic.main.activity_main.*
 import mota.dev.internetalarm.R
+import mota.dev.internetalarm.views.base.BaseActivity
 
-import mota.dev.internetalarm.services.DetectInternetService
 
+class MainActivity : BaseActivity(), IHomeView {
 
-class MainActivity : AppCompatActivity() {
-
+    lateinit var presenter: HomePresenter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        switchAlarm.setOnCheckedChangeListener({ button, changed->
-            if (changed)
-                DetectInternetService.scheduleJob()
-            else
-                JobManager.instance().cancelAllForTag(DetectInternetService.TAG)
-        })
+        presenter = HomePresenter(this)
+        switchAlarm.setOnCheckedChangeListener({ _, active ->  presenter.activeAlarmClick(active)})
     }
+
+    override fun changeAlarmSwitch(active: Boolean) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun changeWifiInternetSwitch(active: Boolean) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun changeAlarmReactivateSwitch(active: Boolean) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun changeDataInternetSwitch(active: Boolean) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
 }

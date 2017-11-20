@@ -6,59 +6,57 @@ package mota.dev.internetalarm.utils
 
 import android.content.Context
 import android.content.SharedPreferences
+import mota.dev.internetalarm.App
 
 
+object PreferencesHelper {
 
-class PreferencesHelper {
+    fun deleteKey(key: String) {
 
-    fun deleteKey(context: Context?, key: String) {
-        if (context != null)
-            getPreferences(context).remove(key)
+            getPreferences().remove(key)
     }
 
 
-    fun writeBoolean(context: Context?, key: String, value: Boolean) {
-        if (context != null)
-            getPreferences(context).putBoolean(key, value)
+    fun writeBoolean(key: String, value: Boolean) {
+            getPreferences().putBoolean(key, value)
     }
 
-    fun readBoolean(context: Context?, key: String,
+    fun readBoolean(key: String,
                     defValue: Boolean): Boolean {
-        return context != null && getPreferences(context).getBoolean(key, defValue)
+        return  getPreferences().getBoolean(key, defValue)
     }
 
 
-    fun writeInteger(context: Context?, key: String, value: Int) {
-        if (context != null)
-            getPreferences(context).putInt(key, value)
+    fun writeInteger(key: String, value: Int) {
+
+            getPreferences().putInt(key, value)
 
     }
 
-    fun readInteger(context: Context?, key: String, defValue: Int): Int {
-        return if (context != null) getPreferences(context).getInt(key, defValue) else -1
+    fun readInteger(key: String, defValue: Int): Int {
+        return getPreferences().getInt(key, defValue)
     }
 
 
-    fun writeString(context: Context?, key: String, value: String) {
-        if (context != null)
-            getPreferences(context).putString(key, value)
+    fun writeString(key: String, value: String) {
+
+            getPreferences().putString(key, value)
     }
 
-    fun readString(context: Context?, key: String, defValue: String): String {
-        return if (context != null) getPreferences(context).getString(key, defValue) else ""
+    fun readString(key: String, defValue: String): String {
+        return getPreferences().getString(key, defValue)
     }
 
-    fun writeDouble(context: Context?, key: String, value: Double?) {
-        if (context != null)
-            getPreferences(context).putDouble(key, value)
+    fun writeDouble(key: String, value: Double?) {
+            getPreferences().putDouble(key, value)
     }
 
-    fun readDouble(context: Context?, key: String, defValue: Double?): Double? {
-        return (if (context != null) getPreferences(context).getDouble(key, defValue) else null)?.toDouble()
+    fun readDouble(key: String, defValue: Double?): Double? {
+        return  getPreferences().getDouble(key, defValue)
     }
 
-    private fun getPreferences(context: Context): SecurePreferences {
-        return SecurePreferences(context, "5c0d3349dc674fe9d0")
+    private fun getPreferences(): SecurePreferences {
+        return SecurePreferences(App.instance, "5c0d3349dc674fe9d0")
 
     }
 

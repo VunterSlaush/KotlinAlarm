@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/InternetAlarm.iml" filepath="$PROJECT_DIR$/InternetAlarm.iml" />
+      <module fileurl="file://C:\Users\user\Documents\KotlinAlarm\InternetAlarm.iml" filepath="C:\Users\user\Documents\KotlinAlarm\InternetAlarm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/KotlinAlarm.iml" filepath="$PROJECT_DIR$/KotlinAlarm.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

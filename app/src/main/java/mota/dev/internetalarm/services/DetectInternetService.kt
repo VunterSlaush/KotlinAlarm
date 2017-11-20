@@ -13,6 +13,7 @@ import android.content.ContentValues.TAG
 import com.evernote.android.job.JobManager
 import com.evernote.android.job.JobRequest
 import mota.dev.internetalarm.constants.Consts
+import mota.dev.internetalarm.utils.Functions
 import java.util.*
 import java.util.concurrent.TimeUnit
 
@@ -20,6 +21,7 @@ import java.util.concurrent.TimeUnit
 /**
  * Created by Slaush on 18/11/2017.
  */
+// TODO evaluar Estabilidad del internet!
 class DetectInternetService : Job() {
     companion object {
         const val TAG = "DETECT INTERNET TAG"
@@ -48,7 +50,7 @@ class DetectInternetService : Job() {
         try {
 
             Log.i("MOTA1", "Finding Internet:"+ Date())
-            if (!InetAddress.getByName(Keys.PING_URL).equals("")) {
+            if (Functions.haveInternet()) {
                 sendHaveInternetBroadCast()
                 removeSelf()
             }
